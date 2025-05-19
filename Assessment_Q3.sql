@@ -12,4 +12,7 @@ SELECT
  JOIN adashi_staging.savings_savingsaccount s
  ON p.id = s.plan_id
  GROUP BY plan_id, owner_id, type
+ HAVING (type = 'Investment' OR type = 'Savings') AND inactivity_days > 365
  ORDER BY inactivity_days DESC;
+ 
+ 
